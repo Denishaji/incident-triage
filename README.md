@@ -18,6 +18,7 @@ This system ingests real GitHub issues via REST API, trains a text classifier to
 ---
 
 ##  Architecture
+```
 GitHub Issues (REST API)
 ↓
 Data Ingestion → data/raw/react_issues.json
@@ -28,7 +29,7 @@ Model Training (TF-IDF + LogReg) + MLflow Tracking
 ↓
 FastAPI Service → POST /predict_issue_type
 
----
+```
 
 ## 📊 Model Performance
 
@@ -59,29 +60,29 @@ FastAPI Service → POST /predict_issue_type
 
 ## 📁 Project Structure
 
+```
 incident_triage/
 ├── src/
-│ ├── data/
-│ │ ├── ingest_github.py # Fetch issues via GitHub REST API
-│ │ └── prepare_issues.py # Clean and derive labels
-│ ├── models/
-│ │ └── train_issue_type_mlflow.py # Train with MLflow tracking
-│ └── service/
-│ └── app.py # FastAPI inference service
+│   ├── data/
+│   │   ├── ingest_github.py       # Fetch issues via GitHub REST API
+│   │   └── prepare_issues.py      # Clean and derive labels
+│   ├── models/
+│   │   └── train_issue_type_mlflow.py  # Train with MLflow tracking
+│   └── service/
+│       └── app.py                 # FastAPI inference service
 ├── data/
-│ ├── raw/ # Raw GitHub issues JSON
-│ └── processed/ # Preprocessed parquet files
+│   ├── raw/                       # Raw GitHub issues JSON
+│   └── processed/                 # Preprocessed parquet files
 ├── models/
-│ └── issue_type_baseline/ # Saved model artifacts
-├── mlflow.db # MLflow tracking database
-├── mlruns/ # MLflow artifact store
+│   └── issue_type_baseline/       # Saved model artifacts
+├── mlflow.db                      # MLflow tracking database
+├── mlruns/                        # MLflow artifact store
 ├── requirements.txt
-├── .env # GitHub token (not committed)
+├── .env                           # GitHub token (not committed)
 ├── .gitignore
 └── README.md
+```
 
-
----
 
 ## 🚀 Quick Start
 
