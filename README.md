@@ -171,6 +171,3 @@ MS Data Science, UMass Dartmouth
 
 ---
 
-## 📝 License
-
-MIT License - feel free to use this project as a template for your own ML engineering work.
