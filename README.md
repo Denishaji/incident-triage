@@ -91,40 +91,45 @@ incident_triage/
 ```bash
 git clone https://github.com/Denishaji/incident-triage.git
 cd incident-triage
-
-# Create virtual environment
+```
+**Create virtual environment**
+```bash
 conda create -n incident-triage python=3.11
 conda activate incident-triage
-
-# Install dependencies
+```
+**Install dependencies**
+```bash
 pip install -r requirements.txt
-
-Configure GitHub Token
+```
+**Configure GitHub Token**
 Create a .env file in project root:
 GITHUB_TOKEN=your_github_personal_access_token
 
 Run the Full Pipeline
-# Step 1: Ingest raw data
+**Step 1: Ingest raw data**
+```bash
 python -m src.data.ingest_github
-
-# Step 2: Preprocess data
+```
+**Step 2: Preprocess data**
+```bash
 python -m src.data.prepare_issues
-
-# Step 3: Train model with MLflow tracking
+```
+**Step 3: Train model with MLflow tracking**
+```bash
 python -m src.models.train_issue_type_mlflow
-
-# Step 4: View experiments
+```
+**Step 4: View experiments**
+```bash
 mlflow ui --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns
-# Open http://127.0.0.1:5000
+```
+ Open http://127.0.0.1:5000
 
-# Step 5: Start prediction API
+**Step 5: Start prediction API**
+```bash
 uvicorn src.service.app:app --reload
-# Open http://127.0.0.1:8000/docs
+```
+Open http://127.0.0.1:8000/docs
 
-
-### Step 8: Add MLflow section
-
-```markdown
 ---
 
 ## 🔬 MLflow Experiment Tracking
@@ -133,22 +138,20 @@ View logged experiments:
 
 ```bash
 mlflow ui --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns
-
-
-### Step 9: Add future improvements
-
-```markdown
+```
 ---
+##  Add future improvements
+
 
 ## 📈 Future Improvements
 
-- [ ] Add model registry with automated promotion to Staging/Production
-- [ ] Fine-tune DistilBERT for improved minority-class performance
-- [ ] Implement CI/CD pipeline with GitHub Actions
-- [ ] Add monitoring and drift detection
-- [ ] Multi-task learning: predict both issue_type and component_team
-- [ ] Hyperparameter tuning with Optuna
-- [ ] Docker containerization and cloud deployment
+-  Add model registry with automated promotion to Staging/Production
+-  Fine-tune DistilBERT for improved minority-class performance
+-  Implement CI/CD pipeline with GitHub Actions
+-  Add monitoring and drift detection
+-  Multi-task learning: predict both issue_type and component_team
+-  Hyperparameter tuning with Optuna
+-  Docker containerization and cloud deployment
 ---
 
 ## 👤 Author
