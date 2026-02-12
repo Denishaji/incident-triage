@@ -1,0 +1,40 @@
+# Environment
+.env
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Data (too large for git)
+data/raw/*.json
+data/processed/*.parquet
+
+# Models (too large for git)
+models/**/*.joblib
+models/**/*.pkl
+
+# MLflow
+mlflow.db
+mlflow.db-shm
+mlflow.db-wal
+mlruns/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
